@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.name         = "FSUtils"
   s.version      = "0.0.1"
-  s.summary      = "A short description of FSUtils."
+  s.summary      = "FSUtils is a set of commont tools used among different internal projects."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+FSUtils is a set of commont tools used among different internal projects. We wrote it so that we didn't have to copy paste code between projects.'
                    DESC
 
   s.homepage     = "https://github.com/fyrastudio/FSUtils"
