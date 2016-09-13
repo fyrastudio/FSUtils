@@ -6,6 +6,7 @@
 //  Copyright © 2016 Fyrastudio. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 //! Project version number for FSUtils.
@@ -16,4 +17,10 @@ FOUNDATION_EXPORT const unsigned char FSUtilsVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <FSUtils/PublicHeader.h>
 
-
+@interface FSUtils : NSObject
+NS_ASSUME_NONNULL_BEGIN
++(NSString*)formatAsPhoneNumber:(NSString*)text;
++(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text okText:(NSString *)okText cancelable:(BOOL)cancelable onViewController:(UIViewController *)vc completion: (void (^ __nullable)(void))completion;
++(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size;
+NS_ASSUME_NONNULL_END
+@end
