@@ -20,7 +20,7 @@ FOUNDATION_EXPORT const unsigned char FSUtilsVersionString[];
 @interface FSUtils : NSObject
 NS_ASSUME_NONNULL_BEGIN
 +(NSString*)formatAsPhoneNumber:(NSString*)text;
-+(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text okText:(NSString *)okText cancelable:(BOOL)cancelable onViewController:(UIViewController *)vc completion: (void (^ __nullable)(void))completion;
++(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod;
 +(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size;
 NS_ASSUME_NONNULL_END
 @end

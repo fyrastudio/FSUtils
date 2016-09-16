@@ -25,21 +25,46 @@
     }
 }
 
-+(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text okText:(NSString *)okText cancelable:(BOOL)cancelable onViewController:(UIViewController *)vc completion: (void (^ __nullable)(void))completion{
++(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:text preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:okText style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action){
-                                                   if(completion){
-                                                       completion();
-                                                   }
-                                               }];
-    [alert addAction:ok];
-    if(cancelable){
-        UIAlertAction* cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel
-                                                       handler:nil];
+    if(actionText){
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:actionText style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action){
+                                                       if(actionMethod){
+                                                           actionMethod();
+                                                       }
+                                                   }];
+        [alert addAction:ok];
+    }
+    if(cancelText){
+        UIAlertAction* cancel = [UIAlertAction actionWithTitle:cancelText style:UIAlertActionStyleCancel
+                                                       handler:^(UIAlertAction * action){
+                                                           if(cancelMethod){
+                                                               cancelMethod();
+                                                           }
+                                                       }];
         [alert addAction:cancel];
     }
-    [vc presentViewController:alert animated:YES completion:nil];
+    if(vc){
+        [vc presentViewController:alert animated:YES completion:nil];
+    }else{
+        UIViewController *rootVC = [[UIApplication sharedApplication].keyWindow rootViewController];
+        if([rootVC isKindOfClass: [UINavigationController class]]){
+            UIViewController *visibleVC = ((UINavigationController *)rootVC).visibleViewController;
+            if(visibleVC) [visibleVC presentViewController:alert animated:YES completion:nil];
+        }else{
+            if([rootVC isKindOfClass: [UITabBarController class]]){
+                UIViewController *selectedVC = ((UITabBarController *)rootVC).selectedViewController;
+                if(selectedVC) [selectedVC presentViewController:alert animated:YES completion:nil];
+            }else{
+                if(rootVC.presentedViewController){
+                    [rootVC.presentedViewController presentViewController:alert animated:YES completion:nil];
+                }else{
+                    [rootVC presentViewController:alert animated:YES completion:nil];
+                }
+            }
+        }
+    }
 }
 
 +(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size{
