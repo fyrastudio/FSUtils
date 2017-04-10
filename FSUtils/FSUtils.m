@@ -51,7 +51,13 @@
         UIViewController *rootVC = [[UIApplication sharedApplication].keyWindow rootViewController];
         if([rootVC isKindOfClass: [UINavigationController class]]){
             UIViewController *visibleVC = ((UINavigationController *)rootVC).visibleViewController;
-            if(visibleVC) [visibleVC presentViewController:alert animated:YES completion:nil];
+            if(visibleVC) {
+				if(visibleVC.presentedViewController){
+					[visibleVC.presentedViewController presentViewController:alert animated:YES completion:nil];
+				}else{
+					[visibleVC presentViewController:alert animated:YES completion:nil];
+				}
+			}
         }else{
             if([rootVC isKindOfClass: [UITabBarController class]]){
                 UIViewController *selectedVC = ((UITabBarController *)rootVC).selectedViewController;
