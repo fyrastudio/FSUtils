@@ -77,4 +77,18 @@
     return [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=square&return_ssl_resources=1&width=%d&height=%d", facebookID, size, size]];
 }
 
++(NSString*)getVersion{
+	NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+	return version;
+}
+
++(NSString*)getBuild{
+	NSString *build = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+	return build;
+}
+
++(NSString*)getVersionAndBuild{
+	return [NSString stringWithFormat:@"%@ (%@)", [FSUtils getVersion], [FSUtils getBuild]];
+}
+
 @end
