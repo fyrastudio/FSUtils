@@ -22,5 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)formatAsPhoneNumber:(NSString*)text;
 +(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod;
 +(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size;
++(NSString*)getVersion;
++(NSString*)getBuild;
++(NSString*)getVersionAndBuild;
 NS_ASSUME_NONNULL_END
 @end
