@@ -91,14 +91,19 @@
 	return [NSString stringWithFormat:@"%@ (%@)", [FSUtils getVersion], [FSUtils getBuild]];
 }
 
-+(void)postLocalNotification:(NSString *)message withAction:(NSString *)action{
++(void)postLocalNotification:(NSString *)message withAction:(NSString *)action data:(NSDictionary *)data{
     dispatch_async(dispatch_get_main_queue(), ^{
         UILocalNotification *note =  [UILocalNotification new];
         note.alertBody = message;
         note.soundName = UILocalNotificationDefaultSoundName;
+        NSMutableDictionary *userInfo = [NSMutableDictionary new];
         if(action){
-            note.userInfo = @{@"Action": action};
+            userInfo[@"Action"] = action;
         }
+        if(data){
+            userInfo[@"Data"] = data;
+        }
+        note.userInfo = userInfo;
         [[UIApplication sharedApplication] scheduleLocalNotification:note];
     });
 }
