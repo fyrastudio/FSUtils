@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FSUtils"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "FSUtils is a set of commont tools used among different internal projects."
 
   # This description is used to generate tags and improve search results.
