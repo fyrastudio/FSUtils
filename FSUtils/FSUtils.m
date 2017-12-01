@@ -91,4 +91,16 @@
 	return [NSString stringWithFormat:@"%@ (%@)", [FSUtils getVersion], [FSUtils getBuild]];
 }
 
++(void)postLocalNotification:(NSString *)message withAction:(NSString *)action{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UILocalNotification *note =  [UILocalNotification new];
+        note.alertBody = message;
+        note.soundName = UILocalNotificationDefaultSoundName;
+        if(action){
+            note.userInfo = @{@"Action": action};
+        }
+        [[UIApplication sharedApplication] scheduleLocalNotification:note];
+    });
+}
+
 @end
