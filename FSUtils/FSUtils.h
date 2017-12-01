@@ -25,6 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)getVersion;
 +(NSString*)getBuild;
 +(NSString*)getVersionAndBuild;
-+(void)postLocalNotification:(NSString *)message withAction:(NSString *)action;
++(void)postLocalNotification:(NSString *)message withAction:(NSString *)action data:(NSDictionary *)data;
 NS_ASSUME_NONNULL_END
 @end
