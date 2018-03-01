@@ -26,5 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString*)getBuild;
 +(NSString*)getVersionAndBuild;
 +(void)postLocalNotification:(NSString *)message withAction:(NSString *)action data:(NSDictionary *)data;
+#pragma mark - Currency methods
++(NSString *)formattedNumberWithString:(NSString *)string andSymbol:(NSString *)symbol;
++(NSDecimalNumber *)decimalNumberWithString:(NSString *)string;
++(NSNumberFormatter*)formatterWithString:(NSString*)string;
 NS_ASSUME_NONNULL_END
 @end

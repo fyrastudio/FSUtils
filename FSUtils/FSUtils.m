@@ -108,4 +108,57 @@
     });
 }
 
+#pragma mark - Currency methods
+
++(NSString *)formattedNumberWithString:(NSString *)string andSymbol:(NSString *)symbol{
+	NSDecimalNumber *number = [[self class] decimalNumberWithString:string];
+	
+	if(number){
+		return [symbol stringByAppendingString:[[[self class] formatterWithString:string] stringFromNumber:number]];
+	}else{
+		return [symbol stringByAppendingString:@"0"];
+	}
+}
+
++(NSDecimalNumber *)decimalNumberWithString:(NSString *)string{
+	return [NSDecimalNumber decimalNumberWithString:string locale:[NSLocale localeWithLocaleIdentifier:@"en-US"]];
+}
+
++(NSNumberFormatter*)formatterWithString:(NSString*)string{
+	NSNumberFormatter *formatter = [NSNumberFormatter new];
+	formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+	formatter.currencySymbol = @"";
+	formatter.negativePrefix = @"";
+	formatter.negativeSuffix = @"";
+	formatter.minimumFractionDigits = 2;
+	formatter.maximumFractionDigits = 2;
+	
+	NSRange range = [string rangeOfString:@"."];
+	
+	if(range.location != NSNotFound){
+		if(range.location > 4){
+			formatter.minimumFractionDigits = 0;
+			formatter.maximumFractionDigits = 0;
+		}else{
+			NSArray *array = [string componentsSeparatedByString:@"."];
+			NSString *decimals = array[1];
+			if(decimals.length > 2){
+				NSUInteger zeros = [decimals numberOfLeadingZeros];
+				if(zeros > 1){
+					formatter.minimumFractionDigits = zeros + 1;
+					formatter.maximumFractionDigits = zeros + 1;
+				}
+			}
+		}
+	}else{
+		//No decimal found. Round number
+		if(string.length > 4){
+			formatter.minimumFractionDigits = 0;
+			formatter.maximumFractionDigits = 0;
+		}
+	}
+	
+	return formatter;
+}
+
 @end
