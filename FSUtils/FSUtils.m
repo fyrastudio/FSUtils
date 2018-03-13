@@ -109,6 +109,15 @@
     });
 }
 
++ (NSString *)fullTimeWithSeconds:(int)totalSeconds
+{
+	int seconds = totalSeconds % 60;
+	int minutes = (totalSeconds / 60) % 60;
+	int hours = totalSeconds / 3600;
+	
+	return hours > 0 ? [NSString stringWithFormat:@"%02d:%02d:%02d",hours,minutes,seconds] : [NSString stringWithFormat:@"%02d:%02d",minutes,seconds];
+}
+
 #pragma mark - Currency methods
 
 +(NSString *)formattedNumberWithString:(NSString *)string andSymbol:(NSString *)symbol{
