@@ -7,6 +7,7 @@
 //
 
 #import "FSUtils.h"
+#import "NSString+Currency.h"
 
 @implementation FSUtils
 

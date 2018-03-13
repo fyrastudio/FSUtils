@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "UIImage+Tools.h"
 
 //! Project version number for FSUtils.
 FOUNDATION_EXPORT double FSUtilsVersionNumber;
