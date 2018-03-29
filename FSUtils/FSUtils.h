@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "UIImage+Tools.h"
 
+#define UIColorFromHex(hex) [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:1.0]
+
 //! Project version number for FSUtils.
 FOUNDATION_EXPORT double FSUtilsVersionNumber;
 
@@ -32,5 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)formattedNumberWithString:(NSString *)string andSymbol:(NSString *)symbol;
 +(NSDecimalNumber *)decimalNumberWithString:(NSString *)string;
 +(NSNumberFormatter*)formatterWithString:(NSString*)string;
+#pragma mark - Color methods
++(UIColor*)colorWithR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b;
 NS_ASSUME_NONNULL_END
 @end
