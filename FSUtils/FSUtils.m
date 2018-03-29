@@ -171,4 +171,10 @@
 	return formatter;
 }
 
+#pragma mark - Color methods
+
++(UIColor*)colorWithR:(CGFloat)r G:(CGFloat)g B:(CGFloat)b{
+    return [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:1];
+}
+
 @end
