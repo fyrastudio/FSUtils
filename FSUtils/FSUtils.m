@@ -8,6 +8,7 @@
 
 #import "FSUtils.h"
 #import "NSString+Currency.h"
+#import "MBProgressHUD.h"
 
 @implementation FSUtils
 
@@ -24,6 +25,14 @@
         case 12: return [NSString stringWithFormat:@"+%@ (%@) %@-%@", [phoneString substringToIndex:2], [phoneString substringWithRange:NSMakeRange(2, 3)], [phoneString substringWithRange:NSMakeRange(5, 3)], [phoneString substringFromIndex:8]];
         default: return nil;
     }
+}
+
++(void)presentHudWithTitle:(NSString *)title onView:(UIView * _Nullable)view asyncBlock:(AsyncBlock)asyncBlock {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.label.text = title;
+    asyncBlock(^(){
+        [hud hideAnimated:YES];
+    });
 }
 
 +(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod{

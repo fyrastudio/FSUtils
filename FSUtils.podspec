@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "FSUtils"
-  s.version      = "0.6"
+  s.version      = "0.7"
   s.summary      = "FSUtils is a set of commont tools used among different internal projects."
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-FSUtils is a set of commont tools used among different internal projects. We wrote it so that we didn't have to copy paste code between projects.'
+FSUtils is a set of common tools used among different internal projects. We wrote it so that we didn't have to copy paste code between projects.'
                    DESC
 
   s.homepage     = "https://github.com/fyrastudio/FSUtils"
@@ -125,6 +125,6 @@ FSUtils is a set of commont tools used among different internal projects. We wro
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  # s.dependency "JSONKit", "~> 1.4"
+  s.dependency "MBProgressHUD", "~> 1.1.0"
 
 end

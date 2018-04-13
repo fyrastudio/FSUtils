@@ -21,8 +21,12 @@ FOUNDATION_EXPORT const unsigned char FSUtilsVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <FSUtils/PublicHeader.h>
 
 @interface FSUtils : NSObject
+
+typedef void (^AsyncBlock)(void (^)(void));
+
 NS_ASSUME_NONNULL_BEGIN
 +(NSString*)formatAsPhoneNumber:(NSString*)text;
++(void)presentHudWithTitle:(NSString *)title onView:(UIView * _Nullable)view asyncBlock:(AsyncBlock)asyncBlock;
 +(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod;
 +(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size;
 +(NSString*)getVersion;
