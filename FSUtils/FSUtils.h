@@ -22,11 +22,11 @@ FOUNDATION_EXPORT const unsigned char FSUtilsVersionString[];
 
 @interface FSUtils : NSObject
 
-typedef void (^AsyncBlock)(void (^)(void));
+typedef void (^AsyncBlock)(void (^ _Nonnull)(void));
 
 NS_ASSUME_NONNULL_BEGIN
 +(NSString*)formatAsPhoneNumber:(NSString*)text;
-+(void)presentHudWithTitle:(NSString *)title onView:(UIView * _Nullable)view asyncBlock:(AsyncBlock)asyncBlock;
++(void)presentHudWithTitle:(NSString * _Nullable)title onView:(UIView *)view asyncBlock:(AsyncBlock)asyncBlock;
 +(void)presentAlertWithTitle:(NSString *)title text:(NSString *)text actionText:(NSString * _Nullable)actionText cancelText:(NSString * _Nullable)cancelText onViewController:(UIViewController * _Nullable)vc actionMethod: (void (^ __nullable)(void))actionMethod cancelMethod: (void (^ __nullable)(void))cancelMethod;
 +(NSURL *)getFacebookPictureURL:(NSString *)facebookID withSize:(int)size;
 +(NSString*)getVersion;

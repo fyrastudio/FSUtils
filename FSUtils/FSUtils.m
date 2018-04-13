@@ -27,7 +27,7 @@
     }
 }
 
-+(void)presentHudWithTitle:(NSString *)title onView:(UIView * _Nullable)view asyncBlock:(AsyncBlock)asyncBlock {
++(void)presentHudWithTitle:(NSString * _Nullable)title onView:(UIView *)view asyncBlock:(AsyncBlock)asyncBlock {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.label.text = title;
     asyncBlock(^(){
