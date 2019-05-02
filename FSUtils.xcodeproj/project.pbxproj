@@ -12,6 +12,8 @@
 		3D52E8A52048F93B00C9F54F /* FSUtils.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3D52E8A42048F93A00C9F54F /* FSUtils.podspec */; };
 		3D6514492058305300004EC6 /* UIImage+Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D6514472058305300004EC6 /* UIImage+Tools.h */; };
 		3D65144A2058305300004EC6 /* UIImage+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6514482058305300004EC6 /* UIImage+Tools.m */; };
+		3D79EB93227B86CF00B26AC4 /* UIColor+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D79EB91227B86CF00B26AC4 /* UIColor+Utils.h */; };
+		3D79EB94227B86CF00B26AC4 /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D79EB92227B86CF00B26AC4 /* UIColor+Utils.m */; };
 		3D8BF24B1D81F1E8002E1FCB /* FSUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8BF24A1D81F1E8002E1FCB /* FSUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D8BF2521D81F1E8002E1FCB /* FSUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D8BF2471D81F1E8002E1FCB /* FSUtils.framework */; };
 		3D8BF2571D81F1E8002E1FCB /* FSUtilsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BF2561D81F1E8002E1FCB /* FSUtilsTests.m */; };
@@ -35,6 +37,8 @@
 		3D52E8A42048F93A00C9F54F /* FSUtils.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FSUtils.podspec; sourceTree = "<group>"; };
 		3D6514472058305300004EC6 /* UIImage+Tools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tools.h"; sourceTree = "<group>"; };
 		3D6514482058305300004EC6 /* UIImage+Tools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tools.m"; sourceTree = "<group>"; };
+		3D79EB91227B86CF00B26AC4 /* UIColor+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		3D79EB92227B86CF00B26AC4 /* UIColor+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
 		3D8BF2471D81F1E8002E1FCB /* FSUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FSUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8BF24A1D81F1E8002E1FCB /* FSUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FSUtils.h; sourceTree = "<group>"; };
 		3D8BF24C1D81F1E8002E1FCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				3D6514472058305300004EC6 /* UIImage+Tools.h */,
 				3D6514482058305300004EC6 /* UIImage+Tools.m */,
 				3D8BF24C1D81F1E8002E1FCB /* Info.plist */,
+				3D79EB91227B86CF00B26AC4 /* UIColor+Utils.h */,
+				3D79EB92227B86CF00B26AC4 /* UIColor+Utils.m */,
 			);
 			path = FSUtils;
 			sourceTree = "<group>";
@@ -117,6 +123,7 @@
 			files = (
 				3D8BF24B1D81F1E8002E1FCB /* FSUtils.h in Headers */,
 				3D6514492058305300004EC6 /* UIImage+Tools.h in Headers */,
+				3D79EB93227B86CF00B26AC4 /* UIColor+Utils.h in Headers */,
 				3D52E8A22048F88E00C9F54F /* NSString+Currency.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +189,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 3D8BF23D1D81F1E8002E1FCB;
@@ -221,6 +229,7 @@
 				3D52E8A32048F88E00C9F54F /* NSString+Currency.m in Sources */,
 				3D65144A2058305300004EC6 /* UIImage+Tools.m in Sources */,
 				3D8BF2B51D820153002E1FCB /* FSUtils.m in Sources */,
+				3D79EB94227B86CF00B26AC4 /* UIColor+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
